@@ -49,6 +49,7 @@
 
     <scm>
         <developerConnection>scm:git:git@github.com:ferralucho/Spring-Pet-Clinic.git</developerConnection>
+        <connection>scm:git:ssh@github.com:ferralucho/Spring-Pet-Clinic.git</connection>
       <tag>v0.0.1-SNAPSHOT</tag>
   </scm>
 
