@@ -13,7 +13,7 @@
     </parent>
     <groupId>ferralucho.springframework</groupId>
     <artifactId>spring-pet-clinic</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.3</version>
     <packaging>pom</packaging>
     <name>spring-pet-clinic</name>
     <description>Spring Pet Clinic</description>
@@ -40,15 +40,16 @@
                     <checkModificationExcludes>
                         <checkModificationExclude>pom.xml</checkModificationExclude>
                     </checkModificationExcludes>
-                    <goal>install</goal>
+                    <goals>install</goals>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
                 </configuration>
             </plugin>
         </plugins>
     </build>
 
     <scm>
-        <developerConnection>scm:git:git@github.com:ferralucho/Spring-Pet-Clinic.git</developerConnection>
-      <tag>spring-pet-clinic-0.0.1</tag>
+        <developerConnection>scm:git:ssh@github.com:ferralucho/Spring-Pet-Clinic.git</developerConnection>
+      <tag>v0.0.1-SNAPSHOT</tag>
   </scm>
 
 </project>
