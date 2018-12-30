@@ -1,4 +1,4 @@
-package springpetclinic;
+package ferralucho.springframework.sfgpetclinic.test;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
