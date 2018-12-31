@@ -13,7 +13,7 @@
     </parent>
     <groupId>ferralucho.springframework</groupId>
     <artifactId>spring-pet-clinic</artifactId>
-    <version>0.0.6-SNAPSHOT</version>
+    <version>0.0.6</version>
     <packaging>pom</packaging>
     <name>spring-pet-clinic</name>
     <description>Spring Pet Clinic</description>
