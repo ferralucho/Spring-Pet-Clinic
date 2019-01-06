@@ -5,8 +5,6 @@ import ferralucho.springframework.sfgpetclinic.model.Pet;
 import ferralucho.springframework.sfgpetclinic.model.Vet;
 import ferralucho.springframework.sfgpetclinic.services.OwnerService;
 import ferralucho.springframework.sfgpetclinic.services.VetService;
-import ferralucho.springframework.sfgpetclinic.services.map.OwnerServiceMap;
-import ferralucho.springframework.sfgpetclinic.services.map.VetServiceMap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -15,22 +13,21 @@ import java.time.LocalDate;
 /**
  * Created by jt on 7/25/18.
  */
+//After spring 4.2 you don't need to add the @Autowired
 @Component
 public class DataLoader implements CommandLineRunner {
 
     private final OwnerService ownerService;
     private final VetService vetService;
 
-    public DataLoader() {
-        this.ownerService = new OwnerServiceMap();
-        this.vetService = new VetServiceMap();
+    public DataLoader(OwnerService ownerService, VetService vetService) {
+        this.ownerService = ownerService;
+        this.vetService = vetService;
     }
 
     @Override
     public void run(String... args) throws Exception {
-
             loadData();
-
     }
 
     private void loadData() {
