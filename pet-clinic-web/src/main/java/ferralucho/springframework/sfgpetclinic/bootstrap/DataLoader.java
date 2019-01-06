@@ -31,7 +31,7 @@ public class DataLoader implements CommandLineRunner {
     }
 
     private void loadData() {
-          Owner owner1 = new Owner();
+        Owner owner1 = new Owner();
         owner1.setFirstName("Michael");
         owner1.setLastName("Weston");
 
