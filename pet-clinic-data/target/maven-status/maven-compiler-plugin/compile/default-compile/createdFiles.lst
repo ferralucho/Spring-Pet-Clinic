@@ -1,5 +1,14 @@
 ferralucho\springframework\sfgpetclinic\model\Owner.class
-ferralucho\springframework\sfgpetclinic\model\PetType.class
+ferralucho\springframework\sfgpetclinic\services\OwnerService.class
+ferralucho\springframework\sfgpetclinic\services\map\OwnerServiceMap.class
+ferralucho\springframework\sfgpetclinic\services\map\AbstractMapService.class
 ferralucho\springframework\sfgpetclinic\model\Person.class
-ferralucho\springframework\sfgpetclinic\model\Pet.class
 ferralucho\springframework\sfgpetclinic\model\Vet.class
+ferralucho\springframework\sfgpetclinic\services\PetService.class
+ferralucho\springframework\sfgpetclinic\services\VetService.class
+ferralucho\springframework\sfgpetclinic\model\Pet.class
+ferralucho\springframework\sfgpetclinic\services\map\PetServiceMap.class
+ferralucho\springframework\sfgpetclinic\model\BaseEntity.class
+ferralucho\springframework\sfgpetclinic\model\PetType.class
+ferralucho\springframework\sfgpetclinic\services\map\VetServiceMap.class
+ferralucho\springframework\sfgpetclinic\services\CrudService.class
