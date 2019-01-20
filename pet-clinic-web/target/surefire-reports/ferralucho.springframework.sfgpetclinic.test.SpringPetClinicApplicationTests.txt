@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: ferralucho.springframework.sfgpetclinic.test.SpringPetClinicApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.481 s - in ferralucho.springframework.sfgpetclinic.test.SpringPetClinicApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 12.561 s - in ferralucho.springframework.sfgpetclinic.test.SpringPetClinicApplicationTests
