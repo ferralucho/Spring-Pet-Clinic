@@ -3,16 +3,25 @@ package ferralucho.springframework.sfgpetclinic.model;
 import java.time.LocalDate;
 
 public class Pet extends BaseEntity{
-    private PetType getType;
+    private PetType petType;
     private Owner owner;
     private LocalDate birthDate;
+    private String name;
 
-    public PetType getGetType() {
-        return getType;
+    public String getName() {
+        return name;
     }
 
-    public void setGetType(PetType getType) {
-        this.getType = getType;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public PetType getPetType() {
+        return petType;
+    }
+
+    public void setPetType(PetType petType) {
+        this.petType = petType;
     }
 
     public Owner getOwner() {
@@ -30,4 +39,5 @@ public class Pet extends BaseEntity{
     public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
+
 }
