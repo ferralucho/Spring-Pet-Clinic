@@ -3,7 +3,8 @@ package ferralucho.springframework.sfgpetclinic.bootstrap;
 import ferralucho.springframework.sfgpetclinic.model.*;
 import ferralucho.springframework.sfgpetclinic.services.OwnerService;
 import ferralucho.springframework.sfgpetclinic.services.PetTypeService;
-import ferralucho.springframework.sfgpetclinic.services.SpecialityService;
+import ferralucho.springframework.sfgpetclinic.services.SpecialtyService;
+import ferralucho.springframework.sfgpetclinic.services.SpecialtyService;
 import ferralucho.springframework.sfgpetclinic.services.VetService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -20,9 +21,9 @@ public class DataLoader implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VetService vetService;
     private final PetTypeService petTypeService;
-    private final SpecialityService specialityService;
+    private final SpecialtyService specialityService;
 
-    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialityService specialityService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialtyService specialityService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;

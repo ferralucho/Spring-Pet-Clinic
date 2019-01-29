@@ -2,8 +2,11 @@ package ferralucho.springframework.sfgpetclinic.services;
 
 import ferralucho.springframework.sfgpetclinic.model.Owner;
 
-import java.util.Set;
+import java.util.List;
 
-public interface OwnerService extends CrudService<Owner, Long>{
+public interface OwnerService extends CrudService<Owner, Long> {
+
     Owner findByLastName(String lastName);
+
+    List<Owner> findAllByLastNameLike(String lastName);
 }

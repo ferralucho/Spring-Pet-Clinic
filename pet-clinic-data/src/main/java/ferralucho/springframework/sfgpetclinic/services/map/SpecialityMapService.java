@@ -1,7 +1,6 @@
 package ferralucho.springframework.sfgpetclinic.services.map;
 
 import ferralucho.springframework.sfgpetclinic.model.Speciality;
-import ferralucho.springframework.sfgpetclinic.services.SpecialityService;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
@@ -10,7 +9,7 @@ import java.util.Set;
  * Created by jt on 7/31/18.
  */
 @Service
-public class SpecialityMapService extends AbstractMapService<Speciality, Long> implements SpecialityService {
+public class SpecialityMapService extends AbstractMapService<Speciality, Long> {
 
     @Override
     public Set<Speciality> findAll() {

@@ -2,7 +2,7 @@ package ferralucho.springframework.sfgpetclinic.services.map;
 
 import ferralucho.springframework.sfgpetclinic.model.Speciality;
 import ferralucho.springframework.sfgpetclinic.model.Vet;
-import ferralucho.springframework.sfgpetclinic.services.SpecialityService;
+import ferralucho.springframework.sfgpetclinic.services.SpecialtyService;
 import ferralucho.springframework.sfgpetclinic.services.VetService;
 import org.springframework.stereotype.Service;
 
@@ -11,9 +11,9 @@ import java.util.Set;
 @Service
 public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
 
-    private final SpecialityService specialtyService;
+    private final SpecialtyService specialtyService;
 
-    public VetServiceMap(SpecialityService specialtyService) {
+    public VetServiceMap(SpecialtyService specialtyService) {
         this.specialtyService = specialtyService;
     }
 
