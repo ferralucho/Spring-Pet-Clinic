@@ -5,65 +5,119 @@ import ferralucho.springframework.sfgpetclinic.repositories.OwnerRepository;
 import ferralucho.springframework.sfgpetclinic.repositories.PetRepository;
 import ferralucho.springframework.sfgpetclinic.repositories.PetTypeRepository;
 import ferralucho.springframework.sfgpetclinic.services.OwnerService;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.verify;
 
-@Service
-@Profile("springdatajpa")
-class OwnerSDJpaService implements OwnerService {
 
-    private final OwnerRepository ownerRepository;
-    private final PetRepository petRepository;
-    private final PetTypeRepository petTypeRepository;
+@ExtendWith(MockitoExtension.class)
+class OwnerSDJpaServiceTest {
 
-    public OwnerSDJpaService(OwnerRepository ownerRepository, PetRepository petRepository,
-                             PetTypeRepository petTypeRepository) {
-        this.ownerRepository = ownerRepository;
-        this.petRepository = petRepository;
-        this.petTypeRepository = petTypeRepository;
+    public static final String LAST_NAME = "Smith";
+    @Mock
+    OwnerRepository ownerRepository;
+
+    @Mock
+    PetRepository petRepository;
+
+    @Mock
+    PetTypeRepository petTypeRepository;
+
+    @InjectMocks
+    OwnerSDJpaService service;
+
+    Owner returnOwner;
+
+    @BeforeEach
+    void setUp() {
+        returnOwner = Owner.builder().id(1l).lastName(LAST_NAME).build();
     }
 
-    @Override
-    public Owner findByLastName(String lastName) {
-        return ownerRepository.findByLastName(lastName);
+    @Test
+    void findByLastName() {
+        when(ownerRepository.findByLastName(any())).thenReturn(returnOwner);
+
+        Owner smith = service.findByLastName(LAST_NAME);
+
+        assertEquals(LAST_NAME, smith.getLastName());
+
+        verify(ownerRepository).findByLastName(any());
     }
 
-    @Override
-    public List<Owner> findAllByLastNameLike(String lastName) {
-        return ownerRepository.findAllByLastNameLike(lastName);
+    @Test
+    void findAll() {
+        Set<Owner> returnOwnersSet = new HashSet<>();
+        returnOwnersSet.add(Owner.builder().id(1l).build());
+        returnOwnersSet.add(Owner.builder().id(2l).build());
+
+        when(ownerRepository.findAll()).thenReturn(returnOwnersSet);
+
+        Set<Owner> owners = service.findAll();
+
+        assertNotNull(owners);
+        assertEquals(2, owners.size());
     }
 
-    @Override
-    public Set<Owner> findAll() {
-        Set<Owner> owners = new HashSet<>();
-        ownerRepository.findAll().forEach(owners::add);
-        return owners;
+    @Test
+    void findById() {
+        when(ownerRepository.findById(anyLong())).thenReturn(Optional.of(returnOwner));
+
+        Owner owner = service.findById(1L);
+
+        assertNotNull(owner);
     }
 
-    @Override
-    public Owner findById(Long aLong) {
-        return ownerRepository.findById(aLong).orElse(null);
+    @Test
+    void findByIdNotFound() {
+        when(ownerRepository.findById(anyLong())).thenReturn(Optional.empty());
+
+        Owner owner = service.findById(1L);
+
+        assertNull(owner);
     }
 
-    @Override
-    public Owner save(Owner object) {
-        return ownerRepository.save(object);
+
+    @Test
+    void save() {
+        Owner ownerToSave = Owner.builder().id(1L).build();
+
+        when(ownerRepository.save(any())).thenReturn(returnOwner);
+
+        Owner savedOwner = service.save(ownerToSave);
+
+        assertNotNull(savedOwner);
+
+        verify(ownerRepository).save(any());
     }
 
-    @Override
-    public void delete(Owner object) {
-        ownerRepository.delete(object);
+    @Test
+    void delete() {
+        service.delete(returnOwner);
+
+        //default is 1 times
+        verify(ownerRepository, times(1)).delete(any());
     }
 
-    @Override
-    public void deleteById(Long aLong) {
-        ownerRepository.deleteById(aLong);
+    @Test
+    void deleteById() {
+        service.deleteById(1L);
+
+        verify(ownerRepository).deleteById(anyLong());
     }
 }
